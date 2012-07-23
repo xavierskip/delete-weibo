@@ -1,9 +1,12 @@
-//Auto_remove_weibo_script
-//自动删除新浪微博脚本
-//author:xavierskip
-//运行方式： 打开你的个人新浪微博页面。就是“我的微博“页面。从你打开的位置开始删起。
-//在你的浏览器中按F12键打开控制台，复制粘贴以上代码在控制台中运行即可。
-//（注：只支持chrome,firefox浏览器，其他的没有测试，IE的就算了，推荐使用chrome浏览器运行此脚本。）
+// Auto_remove_weibo_script
+// 自动删除新浪微博脚本
+//
+// 运行方式：
+//   #打开你的个人新浪微博页面。就是“我的微博“页面。从你打开的位置开始删起。
+//   #在你的浏览器中按F12键打开控制台，复制粘贴以上代码在控制台中运行即可。
+//  （注：只支持chrome,firefox浏览器，其他的没有测试，IE的就算了，推荐使用chrome浏览器运行此脚本。）
+//
+// author:xavierskip
 
 function del_weibo(){
 	var done  = 0,
