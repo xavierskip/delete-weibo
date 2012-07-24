@@ -7,7 +7,7 @@ Auto remove weibo
 
 version
 -------------
-* version;0.15 增加了点页面交互元素，发送大量XMLHttpRequest时候页面会卡住。
+* version:0.15 增加了点页面交互元素，发送大量XMLHttpRequest时候页面会卡住。
 * version:0.1
 
 
