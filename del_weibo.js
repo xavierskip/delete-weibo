@@ -17,7 +17,7 @@ function del_weibo(){
 	for(var i=0;i<weibo_lists.length;i++){
 		array.push(weibo_lists[i].getAttribute("mid"));
 	};
-	console.log('get all mid & ready to del!');   //console output
+	output('get all mid & ready to del!');   // output
 	//sent XMLHttpRequest to del weibo 
 	function deletes(mid){
 		var	del   = new XMLHttpRequest();
@@ -30,7 +30,7 @@ function del_weibo(){
 		}else{
 			wrong++;
 		};
-		console.log("delete weibo!");             //console output
+		output("delete weibo!");             // out put
 		return true;
 	};
 	var start_time = new Date();
@@ -40,7 +40,7 @@ function del_weibo(){
 	var end_time = new Date();
 	var time = (end_time - start_time)/1000;
 	n++;
-	console.log('删除掉'+done+'条微博！\n'+wrong+'条删除失败\n发送删除请求共花费'+time+'s');//console output			
+	output('删除掉'+done+'条微博！\n'+wrong+'条删除失败\n发送删除请求共花费'+time+'s');// out put			
 };
 
 function next_page(){
@@ -51,15 +51,19 @@ function next_page(){
 function main(){
 	var onload_page = setInterval(function(){
 		window.scroll(0,document.body.scrollHeight);
-		console.log("scrolling~");    //我滚，我滚，我滚滚滚~~~~
+		output("scrolling~");    //我滚，我滚，我滚滚滚~~~~
 		if(document.getElementsByClassName("W_pages")[0] != undefined){
     		clearInterval(onload_page);
-			console.log("loading page complete!!!!"); //console output
+			output("loading page complete!!!!"); // out put
 			del_weibo();
 			next_page();
-			console.log(n+"jump to next page");         //console output
+			output(n+"jump to next page");       // out put
     	}
     },1000);//可以适当调小一下这个数值。至于你的电脑会不会滚烂。。。我也不知道！
+};
+
+function output(content){
+	document.getElementById('output').innerHTML = content;
 };
 
 function goto_del(number){
@@ -68,7 +72,34 @@ function goto_del(number){
 	}
 };
 
+// UI
+function UI(){
+	var layer   = document.createElement('div'),
+		wrap    = document.createElement('div'),
+		output  = document.createElement('div'),
+		content = '<h1>WARNING！！正在删除你的微博~！</h1><h2>后悔的话，马上按F5键，或者关闭本页面！</h2>',
+		layer_css = 'opacity: 0.8;background: #000;position: fixed;width: 100%;height: 100%;top: 0;z-index: 99;padding-top: 100px;',
+		wrap_css  = 'margin:0 auto;color:#14FF00;width: 920px;height:480px;',
+		output_css = 'color:#14FF00;position: relative;bottom:-20%;';
+							   
+	layer.setAttribute('id','mask');
+	wrap.setAttribute('id','wrap');
+	output.setAttribute('id','output');
+	
+	layer.setAttribute('style',layer_css);
+	wrap.setAttribute('style',wrap_css);
+	output.setAttribute('style',output_css);
+	wrap.innerHTML = content;
+	wrap.appendChild(output);
+	layer.appendChild(wrap);
+	document.body.appendChild(layer);	
+}
+
+
+//main
 var n=0;
 var weibo_num = document.getElementsByTagName('strong')[3].textContent;
 var weibo_pags = Math.ceil(weibo_num/45);
+UI();
 goto_del(weibo_pags);//可以改为你想删除的页数
+
