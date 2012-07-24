@@ -3,10 +3,12 @@ Auto remove weibo
 运行方式:
 -------------
   * 打开你的个人新浪微博页面，在你的浏览器中按  F12  键打开控制台，复制粘贴以上代码在控制台中运行即可。
-  * （注：只支持chrome,firefox浏览器，其他的没有测试，IE的就算了，推荐使用[chrome浏览器](http://www.google.cn/chrome)运行此脚本。）
+  * (注：只支持chrome,firefox浏览器，其他的没有测试，IE的就算了，推荐使用[chrome浏览器](http://www.google.cn/chrome)运行此脚本.)
 
-version:0.1
+version
 -------------
+version:0.1
+
 
 备注：
 --------------
