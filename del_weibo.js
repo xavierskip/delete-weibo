@@ -12,14 +12,14 @@
 function del_weibo(){
 	var array = [],
 		weibo_lists = document.getElementsByClassName("feed_list W_linecolor");
-    // get whole page weibo_mid
+        // get whole page weibo_mid
 	for(var i=0;i<weibo_lists.length;i++){
 		array.push(weibo_lists[i].getAttribute("mid"));
 	};
 	output('get all mid and ready to del!');   // output
 	//sent XMLHttpRequest to del weibo 
 	function deletes(mid){
-		var	del   = new XMLHttpRequest();
+		var del = new XMLHttpRequest();
 		del.open('post','http://weibo.com/aj/mblog/del?',false);
 		del.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		del.send('mid='+mid+'&_t=0');
@@ -32,12 +32,9 @@ function del_weibo(){
 		output('delete weibo: '+mid);             // out put
 		return true;
 	};
-	//var start_time = new Date();
 	for(i in array){
 		deletes(array[i]);
-	}
-	//var end_time = new Date();
-	//var time = (end_time - start_time)/1000;		
+	};		
 };
 
 function next_page(){
@@ -53,8 +50,7 @@ function next_page(){
 
 function main(){
 	var onload_page = setInterval(function(){
-		window.scroll(0,document.body.scrollHeight);
-		//output("scrolling~");   
+		window.scroll(0,document.body.scrollHeight); 
 		if(document.getElementsByClassName("W_pages")[0] != undefined){
     		clearInterval(onload_page);
 			output("loading page complete!!!!"); // out put
@@ -79,12 +75,12 @@ function goto_del(number){
 // UI
 function UI(){
 	var layer   = document.createElement('div'),
-		wrap    = document.createElement('div'),
-		output  = document.createElement('div'),
-		content = '<h1>WARNING！！正在删除你的微博~！</h1><h2>后悔的话，马上按F5键，或者关闭本页面！</h2>',
-		layer_css = 'opacity: 0.8;background: #000;position: fixed;width: 100%;height: 100%;top: 0;z-index: 99;padding-top: 100px;',
-		wrap_css  = 'margin:0 auto;color:#14FF00;width: 720px;height:405px;',
-		output_css = 'color:#14FF00;position: relative;bottom:-20%;margin: 50px 0 0 320px;';
+	    wrap    = document.createElement('div'),
+	    output  = document.createElement('div'),
+	    content    = '<h1>WARNING！！正在删除你的微博~！</h1><h2>后悔的话，马上按F5键，或者关闭本页面！</h2>',
+	    layer_css  = 'opacity: 0.8;background: #000;position: fixed;width: 100%;height: 100%;top: 0;z-index: 99;padding-top: 100px;',
+	    wrap_css   = 'margin:0 auto;color:#14FF00;width: 720px;height:405px;',
+	    output_css = 'color:#14FF00;position: relative;bottom:-20%;margin: 50px 0 0 320px;';
 							   
 	layer.setAttribute('id','mask');
 	wrap.setAttribute('id','wrap');
@@ -93,8 +89,10 @@ function UI(){
 	layer.setAttribute('style',layer_css);
 	wrap.setAttribute('style',wrap_css);
 	output.setAttribute('style',output_css);
+	
 	wrap.innerHTML = content;
 	output.innerHTML = '>>>>>>>>>>>>>>>>>>>>>>';
+	
 	wrap.appendChild(output);
 	layer.appendChild(wrap);
 	document.body.appendChild(layer);	
@@ -104,7 +102,7 @@ function UI(){
 //main
 var next =0,
     done = 0,
-	fail = 0;
+    fail = 0;
 var weibo_num = document.getElementsByTagName('strong')[3].textContent;
 var weibo_pags = Math.ceil(weibo_num/45);
 UI();
