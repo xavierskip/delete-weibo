@@ -46,9 +46,9 @@ function next_page(){
 	next++;
 	// end 
 	if(count == next){
-			alert('删除掉'+done+'条微博！\n'+fail+'条删除失败');// out put	
-			location.reload();
-		};
+		alert('删除掉'+done+'条微博！\n'+fail+'条删除失败');// out put	
+		location.reload();
+	};
 };
 
 function main(){
