@@ -51,7 +51,7 @@ function main(){
     		clearInterval(onload_page);
 		output("loading page complete!!!!"); // out put
 		del_weibo();
-		// to the end 
+		// mission complete
 		if (del_page == count){
 			alert('删除掉'+done+'条微博！\n'+fail+'条删除失败');
 			location.href = 'http://weibo.com/profile';	
