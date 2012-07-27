@@ -11,13 +11,13 @@
 
 function del_weibo(){
 	var array = [],
-		weibo_lists = document.getElementsByClassName("feed_list W_linecolor");
-    // get whole page weibo_mid
+	weibo_lists = document.getElementsByClassName("feed_list W_linecolor");
+        // get whole page weibo_mid
 	for(var i=0;i<weibo_lists.length;i++){
 		array.push(weibo_lists[i].getAttribute("mid"));
 	};
 	output('get all mid and ready to del!');   // output
-	//sent XMLHttpRequest to del weibo 
+	// sent XMLHttpRequest to del weibo 
 	function deletes(mid){
 		var del = new XMLHttpRequest();
 		del.open('post','http://weibo.com/aj/mblog/del?',false);
@@ -49,14 +49,14 @@ function main(){
 		window.scroll(0,document.body.scrollHeight); 
 		if(document.getElementsByClassName("W_pages")[0] != undefined){
     		clearInterval(onload_page);
-			output("loading page complete!!!!"); // out put
-			del_weibo();
-			// to the end 
-			if (del_page == count){
-				alert('删除掉'+done+'条微博！\n'+fail+'条删除失败');
-				location.href = 'http://weibo.com/profile';	
-			};
-			next_page();
+		output("loading page complete!!!!"); // out put
+		del_weibo();
+		// to the end 
+		if (del_page == count){
+			alert('删除掉'+done+'条微博！\n'+fail+'条删除失败');
+			location.href = 'http://weibo.com/profile';	
+		};
+		next_page();
     	};
     },1000);//可以适当调小一下这个数值。至于你的电脑会不会滚烂。。。我也不知道！	
 };
@@ -67,7 +67,7 @@ function output(content){
 
 function goto_del(number){
 	count = number  //Global
-    alert('您将删除'+number+'页微博\n您有'+weibo_pags+'页；'+weibo_num+'条微博。');
+        alert('您将删除'+number+'页微博\n您有'+weibo_pags+'页；'+weibo_num+'条微博。');
 	console.log('how many pages to del:'+count)  //  console.log() 
 	for (var x=0;x<number;x++){
 		main();
