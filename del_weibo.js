@@ -120,7 +120,3 @@ console.log('weibo_num:'+weibo_num);    //   console.log()
 // let's remove !!!
 goto_del(weibo_pags);//可以改为你想删除的页数
 
-
-// to the end 
-alert('删除掉'+done+'条微博！\n'+fail+'条删除失败');
-location.href = 'http://weibo.com/profile';	
