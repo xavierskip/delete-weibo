@@ -36,6 +36,11 @@ function del_weibo(){
 		deletes(array[i]);
 	};
 	del_page++;
+	// mission complete
+	if (del_page == count){
+		alert('删除掉'+count+'页,\b'+done+'条微博！\n'+fail+'条删除失败');
+		location.href = 'http://weibo.com/profile';	
+	};
 };
 
 function next_page(){
@@ -51,11 +56,6 @@ function main(){
     		clearInterval(onload_page);
 		output("loading page complete!!!!"); // out put
 		del_weibo();
-		// mission complete
-		if (del_page == count){
-			alert('删除掉'+done+'条微博！\n'+fail+'条删除失败');
-			location.href = 'http://weibo.com/profile';	
-		};
 		next_page();
     	};
     },1000);//可以适当调小一下这个数值。至于你的电脑会不会滚烂。。。我也不知道！	
@@ -69,7 +69,7 @@ function goto_del(number){
 	count = number  //Global
     alert('您将删除'+number+'页微博\n您有'+weibo_pags+'页；'+weibo_num+'条微博。');
 	console.log('how many pages to del:'+count)  //  console.log() 
-	for (var x=0;x<=number;x++){
+	for (var x=0;x<number;x++){
 		main();
 	};
 };
