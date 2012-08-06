@@ -67,7 +67,7 @@ function output(content){
 
 function goto_del(number){
 	count = number  //Global
-        alert('您将删除'+number+'页微博\n您有'+weibo_pags+'页；'+weibo_num+'条微博。');
+    alert('您将删除'+number+'页微博\n您有'+weibo_pags+'页；'+weibo_num+'条微博。');
 	console.log('how many pages to del:'+count)  //  console.log() 
 	for (var x=0;x<number;x++){
 		main();
