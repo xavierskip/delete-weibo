@@ -20,7 +20,7 @@ function del_weibo(){
 	// sent XMLHttpRequest to del weibo 
 	function deletes(mid){
 		var del = new XMLHttpRequest();
-		del.open('post','http://weibo.com/aj/mblog/del?',false);
+		del.open('post','http://weibo.com/aj/mblog/del?',true);
 		del.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		del.send('mid='+mid+'&_t=0');
 		var Return = eval("("+del.response+")");
