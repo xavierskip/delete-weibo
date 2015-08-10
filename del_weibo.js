@@ -10,7 +10,7 @@
 // author:xavierskip
 function deletes(mid){
     var oReq = new XMLHttpRequest();
-    oReq.open('post','http://weibo.com/aj/mblog/del?',false);
+    oReq.open('post','http://weibo.com/aj/mblog/del?',false);// false:sync  true:async
     oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     oReq.onreadystatechange = function(e){
         if(oReq.readyState === 4){
@@ -20,7 +20,7 @@ function deletes(mid){
             }else{
                 fail++;
             };
-            output('delete weibo: '+mid);  
+            output('delete weibo: '+mid);
         }
     }
     oReq.send('mid='+mid+'&_t=0');
