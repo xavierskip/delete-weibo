@@ -10,7 +10,7 @@
 // author:xavierskip
 function deletes(mid){
     var oReq = new XMLHttpRequest();
-    oReq.open('post','http://weibo.com/aj/mblog/del?',false);// false:sync  true:async
+    oReq.open('post','https://weibo.com/aj/mblog/del?',false);// false:sync  true:async
     oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     oReq.onreadystatechange = function(e){
         if(oReq.readyState === 4){
@@ -41,18 +41,9 @@ function next_page(d){
 };
 
 function main(next){
-    var onload_page = setInterval(function(){
-        window.scroll(0,document.body.scrollHeight); 
-        var pages = document.querySelector(".W_pages");
-        if(pages == null){
-           console.log("scrool down");
-           return  0;
-        };
-        output("loading page complete!!!!");
-        clearInterval(onload_page);
-    },1000);//可以适当调小一下这个数值。至于你的电脑会不会滚烂。。。我也不知道！ 
+    var pages = document.querySelector(".W_pages"); 
     var mids = [],
-        feed_lists = document.querySelectorAll("#Pl_Official_MyProfileFeed__22 > div > div.WB_feed.WB_feed_profile > div");
+        feed_lists = document.querySelectorAll("#Pl_Official_MyProfileFeed__20 .WB_feed .WB_cardwrap");
     // get whole page weibo_mid
     for(var i=0;i<feed_lists.length;i++){
         var mid = feed_lists[i].getAttribute("mid");
